@@ -1,0 +1,75 @@
+  2092:   new: 8   old: 8
+  3096:   new: 6   old: 2
+  8023:   new:10   old: 9
+  8049:   new: 5   old: 9
+  8143:   new: 5   old:14
+ 12003:   new:16   old: 6
+ 12074:   new:10   old: 5
+ 12084:   new: 5   old:12
+ 14037:   new: 8   old: 8
+ 15004:   new:18   old:35
+ 15088:   new: 6   old: 4
+ 16052:   new: 8   old: 9
+ 16077:   new: 8   old:24
+ 19021:   new:16   old:18
+ 20008:   new:10   old: 8
+ 21077:   new:12   old:28
+ 22013:   new:17   old:14
+ 22090:   new:14   old:17
+ 22093:   new:16   old:11
+ 23025:   new:11   old:11
+ 23080:   new:11   old:24
+ 23084:   new:16   old: 7
+ 24004:   new:15   old:17
+ 24063:   new: 8   old:12
+ 24077:   new:11   old:27
+ 25098:   new:36   old:25
+ 26031:   new:13   old: 2
+ 27059:   new: 9   old:14
+ 28075:   new: 5   old: 4
+ 28096:   new: 5   old: 6
+ 33039:   new: 5   old:10
+ 33066:   new: 9   old:28
+ 35008:   new:10   old:15
+ 35010:   new:36   old:28
+ 35058:   new:13   old:12
+ 35070:   new: 7   old: 3
+ 35091:   new: 3   old:11
+ 37073:   new:16   old:42
+ 38082:   new: 3   old: 9
+ 38092:   new: 8   old: 8
+ 41004:   new: 3   old: 5
+ 41025:   new: 9   old:15
+ 41033:   new: 6   old: 8
+ 41069:   new: 7   old:10
+ 42012:   new: 6   old:25
+ 42044:   new: 4   old: 9
+ 42049:   new: 9   old:12
+ 42078:   new:10   old:10
+ 43070:   new: 3   old: 6
+ 43074:   new: 4   old: 3
+ 43083:   new: 8   old:28
+ 45077:   new:12   old: 8
+ 45096:   new: 9   old:26
+ 46076:   new: 9   old: 8
+ 48055:   new:10   old: 7
+ 54005:   new: 9   old: 6
+ 54082:   new: 8   old:10
+ 55067:   new: 7   old:14
+ 55073:   new: 9   old:24
+ 55075:   new:10   old:14
+ 56028:   new:16   old:12
+ 58060:   new:11   old:22
+ 59078:   new: 9   old:32
+ 60079:   new: 7   old: 4
+ 61060:   new: 9   old: 3
+ 61086:   new:17   old: 9
+ 62096:   new: 7   old: 6
+ 65010:   new:11   old:21
+ 65019:   new:22   old:36
+ 65033:   new:16   old:32
+ 65074:   new:18   old:30
+ 65132:   new:15   old:18
+ 66039:   new:10   old: 8
+ 66053:   new: 6   old:30
+ 66075:   new: 7   old: 5
