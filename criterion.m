@@ -1,4 +1,5 @@
-function [break_while] = criterion(Rnum, score, segments, LongContourMap30, meanSaliency)
+function [break_while] = criterion_v2(Rnum, score, segments, LongContourMap30, meanSaliency)
+%%% simplified code of criterion
 % Output:
 %    break_while: (boolean) judge whether the final_merge loop breaks
 %               true: break
@@ -19,17 +20,17 @@ function [break_while] = criterion(Rnum, score, segments, LongContourMap30, mean
     [val, loc] = sort(score(:)) ;
     loc = loc(~isinf(val)) ;
     l_border = get_L_Border(segments) ;
-    % Rnum >= 98 && Rnum < 120: contact_rate >= 0.05 && Edge(L1,L2).Rate80 <= 0.6 && dSV <= 0.2
-    if Rnum >= 74
-        for order = 1:length(loc)
-            [l1, l2] = ind2sub(size(score), loc(order)) ;
-            adjBorder = get_Adj_Border(l_border, l1, l2) ;
-            BndInd = find(adjBorder) ;
-            l1_border_length = length(find(l_border==l1)) ;
-            l2_border_length = length(find(l_border==l2)) ;
-            contact_rate = length(BndInd)*0.5 / min(l1_border_length, l2_border_length) ;
-            EdgeRate30 = sum(LongContourMap30(BndInd)) / length(BndInd) ;
-            dSV = abs(meanSaliency(l1) - meanSaliency(l2)) ;
+    for order = 1:length(loc)
+        [l1, l2] = ind2sub(size(score), loc(order)) ;
+        adjBorder = get_Adj_Border(l_border, l1, l2) ;
+        BndInd = find(adjBorder) ;
+        l1_border_length = length(find(l_border==l1)) ;
+        l2_border_length = length(find(l_border==l2)) ;
+        contact_rate = length(BndInd)*0.5 / min(l1_border_length, l2_border_length) ;
+        EdgeRate30 = sum(LongContourMap30(BndInd)) / length(BndInd) ;
+        dSV = abs(meanSaliency(l1) - meanSaliency(l2)) ;
+        % Rnum >= 98 && Rnum < 120: contact_rate >= 0.05 && Edge(L1,L2).Rate80 <= 0.6 && dSV <= 0.2
+        if Rnum >= 74
             if contact_rate >= 0.05 && EdgeRate30 <= 0.6 && dSV <= 0.25
                 %disp(score(l1, l2)) ;
                 if score(l1, l2) > threshold_v2
@@ -37,16 +38,7 @@ function [break_while] = criterion(Rnum, score, segments, LongContourMap30, mean
                 end
                 break ;
             end
-        end
-    elseif Rnum >= 43
-        for order = 1:length(loc)
-            [l1, l2] = ind2sub(size(score), loc(order)) ;
-            adjBorder = get_Adj_Border(l_border, l1, l2) ;
-            BndInd = find(adjBorder) ;
-            l1_border_length = length(find(l_border==l1)) ;
-            l2_border_length = length(find(l_border==l2)) ;
-            contact_rate = length(BndInd)*0.5 / min(l1_border_length, l2_border_length) ;
-            dSV = abs(meanSaliency(l1) - meanSaliency(l2)) ;
+        elseif Rnum >= 43
             if contact_rate >= 0.06 && dSV <= 0.3
                 %disp(score(l1, l2)) ;
                 if score(l1, l2) > threshold_v3
@@ -54,16 +46,7 @@ function [break_while] = criterion(Rnum, score, segments, LongContourMap30, mean
                 end
                 break ;
             end
-        end
-    elseif Rnum >= 23
-        for order = 1:length(loc)
-            [l1, l2] = ind2sub(size(score), loc(order)) ;
-            adjBorder = get_Adj_Border(l_border, l1, l2) ;
-            BndInd = find(adjBorder) ;
-            l1_border_length = length(find(l_border==l1)) ;
-            l2_border_length = length(find(l_border==l2)) ;
-            contact_rate = length(BndInd)*0.5 / min(l1_border_length, l2_border_length) ;
-            dSV = abs(meanSaliency(l1) - meanSaliency(l2)) ;
+        elseif Rnum >= 23
             if contact_rate >= 0.04 && dSV <= 0.125
                 %disp(score(l1, l2)) ;
                 if score(l1, l2) > threshold_v4_1
@@ -77,16 +60,7 @@ function [break_while] = criterion(Rnum, score, segments, LongContourMap30, mean
                 end
                 break ;
             end
-        end
-    elseif Rnum >= 14
-        for order = 1:length(loc)
-            [l1, l2] = ind2sub(size(score), loc(order)) ;
-            adjBorder = get_Adj_Border(l_border, l1, l2) ;
-            BndInd = find(adjBorder) ;
-            l1_border_length = length(find(l_border==l1)) ;
-            l2_border_length = length(find(l_border==l2)) ;
-            contact_rate = length(BndInd)*0.5 / min(l1_border_length, l2_border_length) ;
-            dSV = abs(meanSaliency(l1) - meanSaliency(l2)) ;
+        elseif Rnum >= 14
             if contact_rate >= 0.05 && dSV <= 0.4
                 %disp(score(l1, l2)) ;
                 if score(l1, l2) > threshold_v5
@@ -94,21 +68,12 @@ function [break_while] = criterion(Rnum, score, segments, LongContourMap30, mean
                 end
                 break ;
             end
-        end
-    elseif Rnum >= 8
-        if Rnum > 11
-            SVTh = 0.4 ;
-        else
-            SVTh = 0.5 ; 
-        end
-        for order = 1:length(loc)
-            [l1, l2] = ind2sub(size(score), loc(order)) ;
-            adjBorder = get_Adj_Border(l_border, l1, l2) ;
-            BndInd = find(adjBorder) ;
-            l1_border_length = length(find(l_border==l1)) ;
-            l2_border_length = length(find(l_border==l2)) ;
-            contact_rate = length(BndInd)*0.5 / min(l1_border_length, l2_border_length) ;
-            dSV = abs(meanSaliency(l1) - meanSaliency(l2)) ;
+        elseif Rnum >= 8
+            if Rnum > 11
+                SVTh = 0.4 ;
+            else
+                SVTh = 0.5 ; 
+            end
             if contact_rate >= 0.044 && dSV <= SVTh
                 %disp(score(l1, l2)) ;
                 if score(l1, l2) > threshold_v6
@@ -116,16 +81,12 @@ function [break_while] = criterion(Rnum, score, segments, LongContourMap30, mean
                 end
                 break ;
             end
-        end
-    else
-        if Rnum <= 5
-            SVTh = 1 ;
         else
-            SVTh = 0.6 ;
-        end
-        for order = 1:length(loc)
-            [l1, l2] = ind2sub(size(score), loc(order)) ;
-            dSV = abs(meanSaliency(l1) - meanSaliency(l2)) ;
+            if Rnum <= 5
+                SVTh = 1 ;
+            else
+                SVTh = 0.6 ;
+            end
             if dSV <= SVTh
                 %disp(score(l1, l2)) ;
                 if score(l1, l2) > threshold_v7
@@ -135,4 +96,5 @@ function [break_while] = criterion(Rnum, score, segments, LongContourMap30, mean
             end
         end
     end
+    
 end
