@@ -1,4 +1,4 @@
-function  [segments,Rnum]=RegionMerging_2(Nseg, R0,img,LabIm,edge_map,FinalEdge,complex_map,textureImg,SaliencyMap,FCD)   
+function [segments,Rnum]=RegionMerging_2(Nseg, R0,img,LabIm,edge_map,FinalEdge,complex_map,textureImg,SaliencyMap,FCD)   
 %% STAGE 1
     disp('=== STAGE 1 ===') ;
     L_bins=32 ; A_bins=32 ; B_bins=32 ;
