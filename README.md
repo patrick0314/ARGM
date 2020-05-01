@@ -1,7 +1,5 @@
 # Advanced-Image-Segmentation-Techniques-for-Ambiguous-Foreground-Images
 
-[TOC]
-
 ## Introduction
 
 Our proposed algorithm is a superpixel-based image segmentation. The main goal is to segment an input image into several regions with much likely meanings under human perspective. Besides, we provide two methods. One is given the number of final segmentation regions seg by the user, and another is automatically detected by the program.
