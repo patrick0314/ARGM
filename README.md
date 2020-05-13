@@ -23,5 +23,27 @@ There are two distinct datasets: BSDS300 and val2017.
 
 And results, results1, results2 and result3 are the final image segmentation results corresponding to demo files respectively.
 
+There are some parameters can be modified in the code.
+
+* the save path
+
+```matlab
+save_path = 
+```
+
+* save image repectively or save all in a folder
+
+```matlab
+save = 
+save_all = 
+```
+
+* some evaluation of the results corresponding to the ground truth
+
+```matlab
+gt_
+```
+
+
 ## Usage
 
